@@ -1,3 +1,4 @@
+// defining the class
 public class FirstJavaProgram {
     // Entry Point Method
     public static void main(String[] args) {
