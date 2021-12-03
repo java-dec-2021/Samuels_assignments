@@ -55,13 +55,19 @@ public class AlfredQuotes {
     */
     public String respondBeforeAlexis(String conversation) {
         // YOUR CODE HERE
+        // Using indexOf To Search The Argument Coming In For A Certain Word
         if (conversation.indexOf("Alexis") > -1) {
+            // Returning A Output String If The Word Is Found
             return "Right away, sir. She certainly isn't sophisticated enough for that.";
         }
+        // Using indexOf To Search The Incoming Argument For A Certain Word
         else if (conversation.indexOf("Alfred") > -1) {
+            // Returning A String If That Word Is Found
             return "At your service, Sir.";
         }
+        // If Neither Of The Words Are Found This Is The Default Go-To
         else {
+            // Returning A String For The Default Go-To
             return "Right. And with that I shall retire.";
         }
     }
