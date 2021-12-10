@@ -2,10 +2,10 @@
 public class GiantBats extends Mammals {
 
     // Set Constructor Method
-    public GiantBats(int energyLevel) {
-        // Using The "SUPER" Keyword To Call The Mammals Constructor With Its Required Parameters
+    public GiantBats() {
+        // Using The "SUPER" Keyword To Call The Mammals Constructor And Pass 300 Into It
         // Also Using Inheritance From The SuperClass Here
-        super(energyLevel);
+        super(300);
     }
 
     // Set-up My Methods/Functionality/Behavior
