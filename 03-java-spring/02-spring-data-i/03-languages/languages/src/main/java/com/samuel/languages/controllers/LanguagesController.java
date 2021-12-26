@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 @Controller
 public class LanguagesController {
 
-	// Have To Inject My service class To Use Its Functionality To Query My Database
+	// Have To Inject My service class To Use Its Functionality To Query My Database/ Or @Autowired
 	private final LanguageService languageService;
 	
 	// Have To Use Dependency Injection To Have The service class Available To This class
@@ -31,19 +31,19 @@ public class LanguagesController {
 	}
 	
 	// Using Model model To inject Data Via Request To My View
-	// Using @ModelAttribute To Tell The Page I will Be Instantiating A Object
-	@GetMapping("/")
-	public String index(@ModelAttribute("languageOne") Language langInstance, Model model) {
+	// Using @ModelAttribute To Tell The Page I will Be Instantiating A Object On Request(Form)
+	@GetMapping("/languages")
+	public String index(@ModelAttribute("languageVar") Language langInstance, Model model) {
 		List<Language> languages = languageService.allLanguages();
-		model.addAttribute("languages", languages);
+		model.addAttribute("allLanguages", languages);
 		return "/languages/index.jsp";
 	}
 	
 	// Using @ModelAttribute To Instantiate A Language Object
 	// BindingResult Must Come Immediately After @Valid
-	@PostMapping("/languages/new")
+	@PostMapping("/languages")
 	public String create(
-			@Valid @ModelAttribute("languageOne") Language langInstance,
+			@Valid @ModelAttribute("languageVar") Language langInstance,
 			BindingResult result)
 	{
 		if(result.hasErrors()) {
@@ -51,49 +51,52 @@ public class LanguagesController {
 		}
 		else {
 			languageService.createLanguage(langInstance);
-			return "redirect:/";
+			return "redirect:/languages";
 		}
 	}
 	
 	// Have To Use @PathVariable To Transmit Which id(Object) I Want To show To The Server Via URL
-	@GetMapping("/show/{id}")
+	@GetMapping("/languages/{id}")
 	public String show(@PathVariable("id") Long id, Model model) {
-		Language language = languageService.findALanguage(id);
-		model.addAttribute("lang", language);
+		Language languages = languageService.findALanguage(id);
+		model.addAttribute("allLanguages", languages);
 		return "/languages/show.jsp";
 	}
 	
 	// @PathVariable To Transmit To The Server Which id(Object) I Want To edit Via URL
-	// Using @ModelAttribute To Be Able To Retrieve The Object
-	@GetMapping("/edit/{id}")
+	// Using @ModelAttribute To Be Able To Retrieve The Object And Render My Form
+	@GetMapping("/languages/{id}/edit")
 	public String edit(
-			@ModelAttribute(value = "language") Language langOne,
+			@ModelAttribute(value = "language") Language langInstance,
 			@PathVariable("id") Long id,
 			Model model)
 	{
-		Language language = languageService.findALanguage(id);
-		model.addAttribute("langs", language);
+		Language langs = languageService.findALanguage(id);
+		model.addAttribute("allLangs", langs);
 		return "/languages/edit.jsp";
 	}
 	
 	// @ModelAttribute To Instantiate The New updated Language Object
-	@PutMapping("/language/edit/{id}")
+	@PutMapping("/languages/{id}")
 	public String update(
-			@Valid @ModelAttribute(value = "language") Language langOne,
-			BindingResult result)
+			@Valid @ModelAttribute(value = "language") Language langInstance,
+			BindingResult result,
+			@PathVariable("id") Long id,
+			Model model)
 	{
 		if(result.hasErrors()) {
 			return "/languages/edit.jsp";
 		}
 		else {
-			languageService.updateLanguage(langOne);
-			return "redirect:/";
+			languageService.updateLanguage(langInstance);
+			return "redirect:/languages";
 		}
 	}
 	
-	@DeleteMapping("/delete/{id}")
+	@DeleteMapping("/languages/{id}")
 	public String delete(@PathVariable("id") Long id) {
 		languageService.deleteLanguage(id);
-		return "redirect:/";
+		return "redirect:/languages";
 	}
+
 }

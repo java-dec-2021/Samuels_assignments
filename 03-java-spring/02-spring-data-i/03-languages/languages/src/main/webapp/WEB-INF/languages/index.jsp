@@ -12,7 +12,7 @@
 <html>
 <head>
 	<meta charset="ISO-8859-1">
-	<title>Insert title here</title>
+	<title>Dashboard</title>
 	<!-- Bootstrap -->
 	<link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
 	<script src="/webjars/jquery/jquery.min.js"></script>
@@ -34,14 +34,14 @@
         </tr>
     </thead>
     <tbody>
-        <c:forEach items="${languages}" var="language">
+        <c:forEach items="${allLanguages}" var="language">
         <tr>
-            <td><a href="/show/${ language.id }"><c:out value="${ language.name }"/></a></td>
+            <td><a href="/languages/${ language.id }"><c:out value="${ language.name }"/></a></td>
             <td><c:out value="${ language.creator }"/></td>
             <td><c:out value="${ language.currentVersion }"/></td>
-            <td><a href="/edit/${ language.id }">Edit</a></td>
+            <td><a href="/languages/${ language.id }/edit">Edit</a></td>
             <td>
-            <form action="/delete/${ language.id }" method="post">
+            <form action="/languages/${ language.id }" method="post">
     		<input type="hidden" name="_method" value="delete">
     		<input type="submit" value="Delete">
     		</form>
@@ -50,19 +50,19 @@
         </c:forEach>
     </tbody>
 </table>
-<form:form action="/languages/new" method="post" modelAttribute="languageOne">
+<form:form action="/languages" method="post" modelAttribute="languageVar">
     <p>
-        <form:label path="name">Name</form:label>
+        <form:label path="name">Name: </form:label>
         <form:input path="name"/>
         <form:errors path="name"/>
     </p>
     <p>
-        <form:label path="creator">Creator</form:label>
+        <form:label path="creator">Creator: </form:label>
         <form:input path="creator"/>
         <form:errors path="creator"/>
     </p>
     <p>
-        <form:label path="currentVersion">Current Version</form:label>
+        <form:label path="currentVersion">Current Version: </form:label>
         <form:input path="currentVersion"/>
         <form:errors path="currentVersion"/>
     </p>   

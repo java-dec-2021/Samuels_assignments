@@ -3,11 +3,12 @@
 // This Is The Name Of The Package I Am In
 package com.samuel.languages.services;
 
-// Always import My Dependencies
+//Always import My Dependencies
 import org.springframework.stereotype.Service;
 import com.samuel.languages.models.Language;
 import com.samuel.languages.repositories.LanguageRepository;
 import java.util.List;
+import java.util.Optional;
 
 // This Tells Spring That This Is A service class
 @Service
@@ -31,7 +32,15 @@ public class LanguageService {
 	}
 	
 	public Language findALanguage(Long id) {
-		 return languageRepository.findById(id).orElse(null);
+//		return languageRepository.findById(id).orElse(null);
+		Optional<Language> lang = languageRepository.findById(id);
+	    	if(lang.isPresent()) {
+	    		Language langObject = lang.get();
+	    		return languageRepository.save(langObject);
+	    	}
+	    	else {
+	    		return null;
+	    	}
 	}
 	
 	public Language updateLanguage(Language langObject) {

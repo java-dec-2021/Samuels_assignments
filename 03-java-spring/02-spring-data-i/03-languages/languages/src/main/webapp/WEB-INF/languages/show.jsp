@@ -12,7 +12,7 @@
 <html>
 <head>
 	<meta charset="ISO-8859-1">
-	<title>Insert title here</title>
+	<title>Show Page</title>
 	<!-- Bootstrap -->
 	<link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
 	<script src="/webjars/jquery/jquery.min.js"></script>
@@ -23,13 +23,13 @@
     <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body>
-<a href="/">Dashboard</a>   
-<h1><c:out value="${lang.name}"/></h1>
-<p>Name: <c:out value="${lang.name}"/></p>
-<p>Creator: <c:out value="${lang.creator}"/></p>
-<p>Current Version: <c:out value="${lang.currentVersion}"/></p>
-<a href="/edit/${ lang.id }">Edit</a>
-<form action="/delete/${ lang.id }" method="post">
+<a href="/languages">Dashboard</a>   
+<h1><c:out value="${ allLanguages.name }"/></h1>
+<p>Name: <c:out value="${ allLanguages.name }"/></p>
+<p>Creator: <c:out value="${ allLanguages.creator }"/></p>
+<p>Current Version: <c:out value="${ allLanguages.currentVersion }"/></p>
+<a href="/languages/${ allLanguages.id }/edit">Edit</a>
+<form action="/languages/${ allLanguages.id }" method="post">
     <input type="hidden" name="_method" value="delete">
     <input type="submit" value="Delete">
 </form>

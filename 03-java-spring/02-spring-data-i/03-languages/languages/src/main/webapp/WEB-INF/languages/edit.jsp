@@ -12,7 +12,7 @@
 <html>
 <head>
 	<meta charset="ISO-8859-1">
-	<title>Insert title here</title>
+	<title>Edit Page</title>
 	<!-- Bootstrap -->
 	<link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
 	<script src="/webjars/jquery/jquery.min.js"></script>
@@ -23,28 +23,28 @@
     <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body>
-<a href="/">Dashboard</a>
+<a href="/languages">Dashboard</a>
 <h1>Edit Language</h1>
-<form:form action="/language/edit/${ langs.id }" method="put" modelAttribute="language">
-    <input type="hidden" name="method" value="put">
+<form:form action="/languages/${ allLangs.id }" method="put" modelAttribute="language">
+    <input type="hidden" name="_method" value="put">
     <p>
         <form:label path="name">Name: </form:label>
-        <form:input path="name" value="${ langs.name }"/>
+        <form:input path="name" value="${ allLangs.name }"/>
         <form:errors path="name"/>
     </p>
     <p>
         <form:label path="creator">Creator: </form:label>
-        <form:input path="creator" value="${ langs.creator }"/>
+        <form:input path="creator" value="${ allLangs.creator }"/>
         <form:errors path="creator"/>
     </p>
     <p>
         <form:label path="currentVersion">Current Version: </form:label>
-        <form:input path="currentVersion" value="${ langs.currentVersion }"/>
+        <form:input path="currentVersion" value="${ allLangs.currentVersion }"/>
         <form:errors path="currentVersion"/>
     </p>
     <input type="submit" value="Submit"/>
 </form:form>
-<form action="/delete/${ langs.id }" method="post">
+<form action="/languages/${ allLangs.id }" method="post">
     <input type="hidden" name="_method" value="delete">
     <input type="submit" value="Delete">
 </form>
