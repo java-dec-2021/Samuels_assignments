@@ -41,16 +41,16 @@
             <td><c:out value="${ language.currentVersion }"/></td>
             <td><a href="/languages/${ language.id }/edit">Edit</a></td>
             <td>
-            <form action="/languages/${ language.id }" method="post">
+            <form action="/delete/${ language.id }" method="post">
     		<input type="hidden" name="_method" value="delete">
-    		<input type="submit" value="Delete">
+    		<button>Delete</button>
     		</form>
     		</td>
         </tr>
         </c:forEach>
     </tbody>
 </table>
-<form:form action="/languages" method="post" modelAttribute="languageVar">
+<form:form action="/languages" method="post" modelAttribute="language">
     <p>
         <form:label path="name">Name: </form:label>
         <form:input path="name"/>

@@ -25,7 +25,9 @@
 <body>
 <a href="/languages">Dashboard</a>
 <h1>Edit Language</h1>
-<form:form action="/languages/${ allLangs.id }" method="put" modelAttribute="language">
+<!-- Having Spring Handle This As A Put Request -->
+<!-- HTML Handles Only Three Types Of Request (i.e. It's Old) -->
+<form:form action="/languages/${ allLangs.id }/edit" method="post" modelAttribute="language">
     <input type="hidden" name="_method" value="put">
     <p>
         <form:label path="name">Name: </form:label>
@@ -44,9 +46,9 @@
     </p>
     <input type="submit" value="Submit"/>
 </form:form>
-<form action="/languages/${ allLangs.id }" method="post">
+<form action="/delete/${ allLangs.id }" method="post">
     <input type="hidden" name="_method" value="delete">
-    <input type="submit" value="Delete">
+    <button>Delete</button>
 </form>
 </body>
 </html>

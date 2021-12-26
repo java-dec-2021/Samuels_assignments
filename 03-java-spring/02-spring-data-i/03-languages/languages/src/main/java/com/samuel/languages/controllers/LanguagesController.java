@@ -8,7 +8,6 @@ import org.springframework.stereotype.Controller;
 import com.samuel.languages.services.LanguageService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.ui.Model;
-import java.util.List;
 import com.samuel.languages.models.Language;
 import org.springframework.web.bind.annotation.PostMapping;
 import javax.validation.Valid;
@@ -22,31 +21,35 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 @Controller
 public class LanguagesController {
 
-	// Have To Inject My service class To Use Its Functionality To Query My Database/ Or @Autowired
+	// Injecting My service class To Use Its Functionality To Query My Database/ Or @Autowired
 	private final LanguageService languageService;
 	
-	// Have To Use Dependency Injection To Have The service class Available To This class
+	// Constructor
+	// To Use Dependency Injection To Have The service class Available To This class
 	public LanguagesController(LanguageService languageService) {
 		this.languageService = languageService;
 	}
 	
 	// Using Model model To inject Data Via Request To My View
-	// Using @ModelAttribute To Tell The Page I will Be Instantiating A Object On Request(Form)
+	// Using @ModelAttribute To Get A Blank Object For This Request view
 	@GetMapping("/languages")
-	public String index(@ModelAttribute("languageVar") Language langInstance, Model model) {
-		List<Language> languages = languageService.allLanguages();
-		model.addAttribute("allLanguages", languages);
+	public String index(@ModelAttribute("language") Language langInstance, Model model) {
+//		List<Language> languages = languageService.allLanguages();
+		model.addAttribute("allLanguages", this.languageService.allLanguages());
 		return "/languages/index.jsp";
 	}
 	
-	// Using @ModelAttribute To Instantiate A Language Object
+	// Using @ModelAttribute To Instantiate That Blank Language Object And Create It
 	// BindingResult Must Come Immediately After @Valid
 	@PostMapping("/languages")
 	public String create(
-			@Valid @ModelAttribute("languageVar") Language langInstance,
-			BindingResult result)
+			@Valid @ModelAttribute("language") Language langInstance,
+			BindingResult result,
+			Model model)
 	{
 		if(result.hasErrors()) {
+			// To be Able To Render The Page The Exact Same Way, With The Languages Showing
+			model.addAttribute("allLanguages", this.languageService.allLanguages());
 			return "/languages/index.jsp";
 		}
 		else {
@@ -64,20 +67,22 @@ public class LanguagesController {
 	}
 	
 	// @PathVariable To Transmit To The Server Which id(Object) I Want To edit Via URL
-	// Using @ModelAttribute To Be Able To Retrieve The Object And Render My Form
+	// Using @ModelAttribute To Be Able To Retrieve A Blank Object For This Request
+	// If I Have A edit "id" For My @GetMapping, It Has To Match For My @PostMapping,
+	// For The update Functionality To Work. Otherwise It Will Be Creating New Objects
+	// Instead Of updating The Current One.
 	@GetMapping("/languages/{id}/edit")
 	public String edit(
-			@ModelAttribute(value = "language") Language langInstance,
+			@ModelAttribute("language") Language langInstance,
 			@PathVariable("id") Long id,
 			Model model)
 	{
-		Language langs = languageService.findALanguage(id);
-		model.addAttribute("allLangs", langs);
+		model.addAttribute("allLangs", this.languageService.findALanguage(id));
 		return "/languages/edit.jsp";
 	}
 	
-	// @ModelAttribute To Instantiate The New updated Language Object
-	@PutMapping("/languages/{id}")
+	// @ModelAttribute To Instantiate The New "updated" Blank Language Object
+	@PutMapping("/languages/{id}/edit")
 	public String update(
 			@Valid @ModelAttribute(value = "language") Language langInstance,
 			BindingResult result,
@@ -85,6 +90,7 @@ public class LanguagesController {
 			Model model)
 	{
 		if(result.hasErrors()) {
+			model.addAttribute("allLangs", this.languageService.findALanguage(id));
 			return "/languages/edit.jsp";
 		}
 		else {
@@ -93,7 +99,7 @@ public class LanguagesController {
 		}
 	}
 	
-	@DeleteMapping("/languages/{id}")
+	@DeleteMapping("/delete/{id}")
 	public String delete(@PathVariable("id") Long id) {
 		languageService.deleteLanguage(id);
 		return "redirect:/languages";

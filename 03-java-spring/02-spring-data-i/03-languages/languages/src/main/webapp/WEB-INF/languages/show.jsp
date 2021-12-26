@@ -29,9 +29,9 @@
 <p>Creator: <c:out value="${ allLanguages.creator }"/></p>
 <p>Current Version: <c:out value="${ allLanguages.currentVersion }"/></p>
 <a href="/languages/${ allLanguages.id }/edit">Edit</a>
-<form action="/languages/${ allLanguages.id }" method="post">
+<form action="/delete/${ allLanguages.id }" method="post">
     <input type="hidden" name="_method" value="delete">
-    <input type="submit" value="Delete">
+    <button>Delete</button>
 </form>
 </body>
 </html>
