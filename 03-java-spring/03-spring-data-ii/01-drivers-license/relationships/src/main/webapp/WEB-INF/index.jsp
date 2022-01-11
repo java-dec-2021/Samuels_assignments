@@ -29,6 +29,7 @@
             <th>ID</th>
             <th>First Name</th>
             <th>Last Name</th>
+            <th>Actions</th>
         </tr>
     </thead>
     <tbody>
@@ -37,6 +38,7 @@
             <td><c:out value="${person.id}"/></td>
             <td><c:out value="${person.firstName}"/></td>
             <td><c:out value="${person.lastName}"/></td>
+            <td><a href="/person/${ person.id }">See License</a></td>
         </tr>
         </c:forEach>
     </tbody>

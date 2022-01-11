@@ -61,8 +61,8 @@ public class RelationshipsController {
 	public String showLicense(Model model, @ModelAttribute("license") LicenseModel licenseObj) {
 		model.addAttribute("people", this.relationshipService.getUnlicensedPersons());
 		return "license.jsp";
-	}
-	
+		}
+
 	// Route To Process The License
 	@PostMapping("/newlicense")
 	public String createLicense(@Valid @ModelAttribute("license") LicenseModel licenseObj, BindingResult result, Model model) {
