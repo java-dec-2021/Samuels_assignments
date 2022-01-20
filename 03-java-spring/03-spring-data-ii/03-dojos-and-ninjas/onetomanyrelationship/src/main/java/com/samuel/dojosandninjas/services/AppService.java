@@ -36,5 +36,4 @@ public class AppService {
 	public Dojos findOneDojo(Long id) {
 		return this.dojoRepo.findById(id).orElse(null);
 	}
-	
 }
