@@ -1,6 +1,6 @@
-// Importing java.util library.
+// Importing the java.util Date library, to be able to use and display the date
 import java.util.Date;
-// Defining the class.
+// Defining the Class with Verb name
 public class AlfredQuotes {
     /*
     Inputs: None
@@ -55,26 +55,26 @@ public class AlfredQuotes {
     */
     public String respondBeforeAlexis(String conversation) {
         // YOUR CODE HERE
-        // Using indexOf To Search The Parameter Coming In For A Certain Word
+        // Using indexOf (plenty more I could use) to search the Parameter for a specific word
         if (conversation.indexOf("Alexis") > -1) {
-            // Returning A Output String If The Word Is Found
+            // Return Output String if the word is found
             return "Right away, sir. She certainly isn't sophisticated enough for that.";
         }
-        // Using indexOf To Search The Incoming Parameter For A Certain Word
+        // Using indexOf to search the Parameter for a specific word
         else if (conversation.indexOf("Alfred") > -1) {
-            // Returning A String If That Word Is Found
+            // Return Output String if the word is found
             return "At your service, Sir.";
         }
-        // If Neither Of The Words Are Found This Is The Default Go-To
+        // If Neither of the words are found this will be the default response
         else {
-            // Returning A String For The Default Go-To
+            // Return Output String for the default response
             return "Right. And with that I shall retire.";
         }
     }
     // NINJA BONUS
     // Write your own AlfredQuote method using any of the String methods you have learned!
     public String heyAlfredBot(String birthday) {
-        if (birthday.indexOf("today") > -1){
+        if (birthday.contains("today")){
             return String.format("Your Birthday is today! %s", new Date());
         }
         else {

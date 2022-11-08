@@ -1,6 +1,7 @@
-// Defining the classes Functionality
+// Defining the Class
 public class FirstJavaProgram {
-    // Example of The Entry Point Method I Need To Use In My Test File Or Single File. This Starts My Application
+    // The Entry Point Method that my Program needs in order to start.
+    // I need this in a Test File or somewhere in my App for it to start.
     public static void main(String[] args) {
         System.out.println("My name is Sam");
         System.out.println("I am 24 years old");

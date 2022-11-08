@@ -1,4 +1,4 @@
-// Defining my "Test file".
+// Defining my test file class with Verb name
 public class AlfredTest {
     /*
     This main method will always be the launch point for a Java application
@@ -6,9 +6,9 @@ public class AlfredTest {
     AlfredQuotes methods.
     */
     public static void main(String[] args) {
-        // Make an instance of AlfredQuotes to access all it's methods.
+        // instantiating AlfredQuotes to make a instance of it and also access all of it's methods.
         AlfredQuotes alfredBot = new AlfredQuotes();
-        // Make some test greetings, providing any necessary data
+        // Test greetings, with required data
         String testGreeting = alfredBot.basicGreeting();
         String testGuestGreeting = alfredBot.guestGreeting("Beth Kane", "evening");
         String testDateAnnouncement = alfredBot.dateAnnouncement();
@@ -23,7 +23,7 @@ public class AlfredTest {
         String birthdayTest = alfredBot.heyAlfredBot("What day is today?");
         String birthdayTest1 = alfredBot.heyAlfredBot("What day is it?");
         
-        // Print the greetings to test.
+        // Printing the test greetings to test the Instance Methods.
         System.out.println(testGreeting);
         // Uncomment these one at a time as you implement each method.
         System.out.println(testGuestGreeting);
