@@ -1,16 +1,16 @@
-// Add my imports
+// Importing Libraries I need
 import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.Random;
-// Defining The classes Functionality
+// Defining The class with Verb name
 public class PuzzleJava {
     // Write a Method to Print 10 Random Numbers out of 20 Into an Array
     public void getTenRolls() {
         // Initializing an Array
         int[] array;
-        // Setting Its Length Or Number Of Indices
+        // Specifying the Length or Number of Indices, So I receive no Error
         array = new int[10];
-        // Generating A Random Number for Each Index up to 20
+        // Generating a Random Number for each Index up to 20 (exclusive)
         array[0] = new Random().nextInt(20);
         array[1] = new Random().nextInt(20);
         array[2] = new Random().nextInt(20);
@@ -21,7 +21,7 @@ public class PuzzleJava {
         array[7] = new Random().nextInt(20);
         array[8] = new Random().nextInt(20);
         array[9] = new Random().nextInt(20);
-        // How I Have To Print The Array
+        // How I have to Print the Array
         System.out.println(Arrays.toString(array));
     }
 
@@ -29,35 +29,35 @@ public class PuzzleJava {
     public String getRandomLetter() {
         // Initialize an Array and Seeded Its Indices
         String[] array = new String[] {"a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "w", "x", "y", "z"};
-        // Returning a String Telling Me What Letter It Is By Creating a Random Generator And Using The nextInt Method for it
+        // Returning a String telling me the Letter it is, by Creating a Random Generator utilizing the nextInt Instance Method from the Random Class
         return " Random Letter from the array = " + array[new Random().nextInt(array.length)];
     }
 
     // Write a Method to Generate a String of 8 Characters
     public String getPassword() {
-        // An Empty String To Hold My 8 Characters
+        // Declaring an Empty String to hold the 8 Characters
         String password = "";
-        // A FOR loop To Produce 8 Characters
+        // Utilizing a For Loop to produce 8 characters
         for (int i = 0; i < 8; i++) {
-            // Setting my password String To Be Populated By a Letter Each Iteration Through Using My "getRandomLetter()" Method
+            // Appending to my Password String on each Iteration with a random Letter by using getRandomLetter() Instance Method
             password += getRandomLetter();
         }
-        // Printing My 8 Character String
+        // Printing my 8 character String to see if it populated correctly
         System.out.println(password);
-        // Returning My 8 Character String
+        // Returning my 8 character String
         return password;
     }
 
     // Write a Method to Create a passwordset Using the int "length" as the Parameter
     public ArrayList<String> getNewPasswordSet(int length) {
-        // Using ArrayList Because I can Manipulate (Add/Remove) ArrayList's
+        // Declaring a new ArrayList because I can Manipulate ArrayList (Add/Remove)/ also utilizing Generics<>
         ArrayList<String> password = new ArrayList<String>();
-        // FOR loop Iterating through the "length" of my Parameter
+        // For Loop Iterating through the "length" of the Parameter
         for (int i = 0; i < length; i++) {
-            // Each Iteration Add a Random letter To My ArrayList Using my "getRandomLetter" Method
+            // On each Iteration, add a Random letter to the ArrayList Utilizing getRandomLetter() Instance Method
             password.add(getRandomLetter());
         }
-        // Printing The Results
+        // Printing The Results to check if the ArrayList populated correctly
         System.out.println(password);
         //returning The Output
         return password;
