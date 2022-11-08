@@ -1,6 +1,6 @@
-// Defining My Class
+// Defining My Class with Verb name
 public class FizzBuzz {
-    // Defining My Methods Or Functionality For My class
+    // Constructor example
     public String fizzBuzz(int args) {
         if (args % 3 == 0 && args % 5 == 0) {
             return "FizzBuzz";
@@ -16,7 +16,7 @@ public class FizzBuzz {
         }
     }
 
-    // Overloaded Method
+    // Constructor being Overloaded example
     public String fizzBuzz(int args, String multOf15Word, String multOf3Word, String multOf5Word) {
         if (args % 3 == 0 && args % 5 == 0) {
             return multOf15Word;
