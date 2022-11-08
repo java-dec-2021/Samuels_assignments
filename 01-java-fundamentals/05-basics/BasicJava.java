@@ -1,10 +1,10 @@
 /* Methods Calls() For My classes Functionality,
 ** That My Test File Will Run */
 
-// Import Array Module
+// Import Array Modules to be able to use Arrays for Java
 import java.util.Arrays;
 import java.util.ArrayList;
-// Define the class
+// Defining the Class with Verb name
 public class BasicJava {
 
 
@@ -37,7 +37,7 @@ public class BasicJava {
         int sum = 0;
         // Count up to 255
         for (int i = 1; i < 256; i++) {
-            // Adding All of the i's to my Variable Sum
+            // Adding all of the i's to my Variable Sum to sum
             sum += i;
             // Printing the results
             System.out.println(sum);
@@ -47,32 +47,32 @@ public class BasicJava {
 
 // Write a Method that Iterates through Each Index in the Array
     public void iterArr(int[] anyArray) {
-        // Iterate Through The Array Indices
+        // Iterate through the Array Indices
         for (int i = 0; i < anyArray.length; i++) {
             // Printing the results
             System.out.println(anyArray[i]);
         }
-        // Another Way To Print Arrays - This Way Actually Shows The Results In The Array Form "[]"
+        // Another way to Print Arrays - This way actually shows the results in Array form "[]"
         // System.out.println(Arrays.toString(anyArray));
     }
 
 
 // Write a Method that Finds the Max for Any Given Array
     public void findMax() {
-        // Declare an ArrayList, Make new Instance of ArrayList To Hold all my Outputs
+        // Declare an ArrayList, Make a Instance of ArrayList to hold all Inputs
         ArrayList<Integer> newArray = new ArrayList<Integer>();
-        // Adding to my ArrayList
+        // Appending to ArrayList
         newArray.add(1);
         newArray.add(-3);
         newArray.add(5);
         newArray.add(-7);
         newArray.add(9);
         newArray.add(13);
-        // Declaring a Variable to Hold my Max Value
+        // Declare a Variable to hold the Max value
         int max = 0;
         // Iterate the ArrayList Indices
         for (int i = 1; i < newArray.size(); i++) {
-            // If Check for the Max of any given Array
+            // If Check for the Max for any given number
             if (newArray.get(i) > max) {
                 max = newArray.get(i);
             }
@@ -84,19 +84,19 @@ public class BasicJava {
 
 // write a method that puts All the Odd numbers into an Array
     public ArrayList<Integer> newArr() {
-        // Declare an ArrayList, Make new Instance of ArrayList To Hold all my Outputs
+        // Declare an ArrayList, Make a Instance of ArrayList to hold all my Inputs
         ArrayList<Integer> array = new ArrayList<Integer>();
-        // Iterate the Array Indices
+        // Iterate the ArrayList Indices
         for (int i = 1; i < 256; i++) {
             // If check for Odd numbers
             if (i % 2 == 1) {
-                // Adding i to my ArrayList
+                // Appending i (odd numbers) to the ArrayList
                 array.add(i);
             }
         }
         // Printing the results
         System.out.println(array);
-        // Returning the Array
+        // Returning the ArrayList
         return array;
     }
 }

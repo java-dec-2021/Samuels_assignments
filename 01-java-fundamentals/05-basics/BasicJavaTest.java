@@ -1,8 +1,8 @@
-// Defining the "Test file" That Test My "BasicJava" Class Source File's Functionality
+// Defining Test File that Test the BasicJava Classes Source code File Instance Methods
 public class BasicJavaTest {
-    // write my Entry Point
+    // Entry Point that runs(starts) the App
     public static void main(String[] args) {
-        // Make an instance of BasicJava class to access it's methods
+        // Instantiation of BasicJava Class to create an Instance of it
         BasicJava basicThirteen = new BasicJava();
         // Make method calls
         // basicThirteen.print255();
