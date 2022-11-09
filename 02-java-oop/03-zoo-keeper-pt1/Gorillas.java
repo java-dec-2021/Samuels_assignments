@@ -1,18 +1,17 @@
-// Define My class With A Verb
+// Defining Class with a Verb as the name
 public class Gorillas extends Mammals {
 
-    // Set A Constructor Method
+    // Defining Constructor Method of this Class that is Inheriting the Mammal Class
     public Gorillas(int energyLevel) {
-        // Using "SUPER" To Call The Mammals Constructor Method With Its Required Parameters.
-        // Also Using Inheritance From The Superclass Here
+        // Using "super" to call on the Mammal Parent Classes Constructor. Must include all Parameters in Parent Constructor. Using "superclass" Constructor AKA Parent Class.
         super(energyLevel);
     }
 
-    // Set-up My Methods/Functionality/Behavior
+    // Defining Methods/Functionality/Behavior of this Class
     public void throwFood() {
-        // Since The Superclass Attribute Is Public (or Protected),
-        // I can Use Inheritance To Use The Mammals Attribute,
-        // And Also "THIS" To Make It Now This Specific Classes Own Attribute
+        // Since this "superclass" member Variable is Public (or Protected),
+        // I can use Inheritance to use the Column in the Mammal superclass,
+        // also using "this" to make it Specific to this Class.
         this.energyLevel-=5;
     }
 
@@ -23,4 +22,5 @@ public class Gorillas extends Mammals {
     public void climbTree() {
         this.energyLevel-=10;
     }
+
 }
