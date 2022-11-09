@@ -1,20 +1,20 @@
-// Define My Class With Verb Name
+// Defining Class with a Verb as the name
 public class Mammals {
 
-    // Set Some Attributes/Fields
+    // Member Variable/Attribute/Column
     public int energyLevel;
 
-    // Set A Constructor Method
+    // Defining Constructor Method of Parent Class
     public Mammals(int energyLevel) {
-        // Calling On "THIS" classes Attribute
-        // Same As "SELF" From Python
+        // Use "this" when using the same Variable name
+        // "this" is the same as "self" in Python
         this.energyLevel = energyLevel;
     }
 
-    // Set-up My Methods/Functionality/Behavior
+    // Defining Methods/Functionality/Behavior of the Class
     public int displayEnergy() {
-        // Returning What The Current Energy Level Is For "THIS" Class Attribute Only
-        // Same As "SELF" From Python
+        // Returning the current energy level of the Class
         return this.energyLevel;
     }
+
 }
