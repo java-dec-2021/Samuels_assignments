@@ -1,31 +1,34 @@
-// Define The class With A Verb
+// Define Class With Verb name
+// Using Java Inheritance
 public class GiantBats extends Mammals {
 
-    // Set Constructor Method
+    // Setting Constructor Method
     public GiantBats() {
-        // Using The "SUPER" Keyword To Call The Mammals Constructor And Pass 300 Into It
-        // Also Using Inheritance From The SuperClass Here
+        // Using "SUPER" Keyword to call the Mammals Superclass Constructor and pass 300 into it for default GiantBats energyLevel
+        // Also using Constructor Overloading
         super(300);
     }
 
-    // Set-up My Methods/Functionality/Behavior
+    // Setting up my Methods/Functionality/Behavior
     public int displayEnergy() {
-        // Returning "THIS" class Specific Inherited Attribute From Mammals
+        // Returning "this" classes Inherited Column (because its public in its Superclass, so I can use it) in Mammals
         return this.energyLevel;
     }
 
+    // Defining Member Methods/behavior/functionality
     public void fly() {
-        System.out.println("This Is The Sound Of The Bat Taking Off " + "Energy Level: " + this.energyLevel);
         this.energyLevel-=50;
+        System.out.println("This Is The Sound Of The Bat Taking Off " + "Energy Level: " + this.energyLevel);
     }
 
     public void eatHumans() {
-        System.out.println("He Gone! " + "Energy Level: " + this.energyLevel);
         this.energyLevel+=25;
+        System.out.println("He Gone! " + "Energy Level: " + this.energyLevel);
     }
 
     public void attackTown() {
-        System.out.println("AHHHHHHHHH " + "Energy Level: " + this.energyLevel);
         this.energyLevel-=100;
+        System.out.printf("AHHHHHHHHH now the energyLevel is: %d", this.energyLevel);
     }
+
 }
