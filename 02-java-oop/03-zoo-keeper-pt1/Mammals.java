@@ -13,7 +13,7 @@ public class Mammals {
 
     // Defining Methods/Functionality/Behavior of the Class
     public int displayEnergy() {
-        // Returning the current energy level of the Class
+        // Returning the current energy level of the Classes Instantiated Instance
         return this.energyLevel;
     }
 
