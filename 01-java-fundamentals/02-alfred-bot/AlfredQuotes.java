@@ -1,6 +1,6 @@
 // Importing the java.util Date library, to be able to use and display the date
 import java.util.Date;
-// Defining the Class with Verb name
+// Defining Class with Verb name
 public class AlfredQuotes {
     /*
     Inputs: None
