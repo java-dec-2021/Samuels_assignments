@@ -1,5 +1,5 @@
 public class ProjectTest {
-
+    // Entry Point for my App to Start
     public static void main(String[] args) {
         // Project project = new Project("new name");
         // System.out.println(project.elevatorPitch());
