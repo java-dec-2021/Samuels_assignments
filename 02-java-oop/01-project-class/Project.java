@@ -1,14 +1,15 @@
+// Defining Class with Verb name 
 public class Project {
+// Member Variables
     private String name;
     private String description;
     private double initialCost;
-
-
+// Constructor
     public Project() {
         this.name="I need a name!!";
         this.description="Give me a description!";
     }
-
+// Member Methods
     public Project(String name) {
         this.name=name;
         this.description="Give me a description!";
@@ -22,7 +23,7 @@ public class Project {
     public String elevatorPitch() {
         return this.getName() + " " + (this.getInitialCost()) + " : " + this.getDescription();
     }
-
+// Instance Methods for Getters and Setters
     public String getName() {
         return this.name;
     }
