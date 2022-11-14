@@ -4,8 +4,7 @@ public class GiantBats extends Mammals {
 
     // Setting Constructor Method
     public GiantBats() {
-        // Using "SUPER" Keyword to call the Mammals Superclass Constructor and pass 300 into it for default GiantBats energyLevel
-        // Also using Constructor Overloading
+        // Using "super()" Keyword to call the Mammals Superclass Constructor and pass 300 into it for Default GiantBats energyLevels' Value
         super(300);
     }
 
