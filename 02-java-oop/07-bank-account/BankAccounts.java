@@ -1,140 +1,136 @@
-// Add My import 
+// Import the Imports that I need
 import java.util.Random;
 
-// Set-up My class With A Verb
+// Defining the Class With Verb name
 public class BankAccounts {
 
-    // Set-up Some Member Variables/Attributes
-    private String accountNumber;
-    private double checking;
-    private double savings;
+// Declaring and Defining Member Variables of Instance Variables
+private double checking;
+private double savings;
 
-    // Static (class) Attributes
-    private static double totalAmount = 0;
-    private static int numberOfAccounts = 0;
+// Declaring and Defining Static (Class) Member Variables
+private static String accountNumber = "";
+private static int numberOfAccounts = 0;
+private static double totaledAmountOfMoneyFromEverySingleBankAccountInstance = 0;
 
-    // Set-up My Constructor
-    public BankAccounts() {
-        this.accountNumber = this.randAccountNumber();
-        this.checking = 0;
-        this.savings = 0;
-        numberOfAccounts++;
+// Defining the Constructor with Default Values for Java
+public BankAccounts() {
+    accountNumber = randomAccountNumber();
+    this.checking = 0;
+    this.savings = 0;
+    numberOfAccounts++;
+}
+
+    // Static (Class) Method / Method to just Display the Total amount of money of both the Checking and Savings for administrative personnel
+// Static (Class) Method to Display the Total Amount of a Both the Checking and Savings Account
+public String getTotalOfBothAccounts() {
+    return "Money of Both Accounts Totaled: " + (this.getChecking() + this.getSavings());
+}
+
+// Instance Method to generate 10 Random Numbers for an Account Number
+private static String randomAccountNumber() {
+    // Declare and Define a Variable to hold the Random 10 Digit Numbers, Also this Variable is Local to this Function
+    String accountNumber = "";
+    // Instantiating a Instance of the Random Class
+    Random randomObject = new Random();
+    // Pull Random Number And Concat To accountNumber
+    for(int i = 0; i < 10; i++) {
+        // Use the accountNumber Variable to hold the Random 10 Digit numbers that come from each Iteration
+        // Concatenating the Value returned to the accountNumber Variables Empty String
+        // Use ".concat" Instance Method from the String Class to Concatenate each Digit (That will be a "int" but I Type Casted the Variable as a "String") on each Iteration
+        accountNumber = accountNumber.concat(String.valueOf(randomObject.nextInt(10)));
     }
+    // Returning 1 Random 10 Digit number String
+    return accountNumber;
+}
 
-    // Method To Get 10 Random Numbers For accountNumber
-    private String randAccountNumber() {
-        // Have My accountNumber Variable Hold My Random 10 Numbers
-        String accountNumber = "";
-        // Instantiating A Random Object
-        Random randNum = new Random();
-        // Pull Random Number And Concat To accountNumber
-        for(int i = 0; i < 10; i++) {
-            // Use accountNumber To Hold Whatever Random Number Comes Back On Each Iteration
-            // Concatenating Whatever Value Is Returned To My accountNumber Empty String
-            // Use .concat Function To Concatenate One String To Another
-            // Get The Value Of The Number As A String
-            // Creating A Random Number
-            accountNumber = accountNumber.concat(String.valueOf(randNum.nextInt(10)));
-        }
-        // Returning 1 Random 10 Digit Number In A String
-        return accountNumber;
+    // Instance Methods to Deposit Money, And Instance Methods can access Static Variables or Methods
+// Method to Deposit into Checking Account
+public void depositChecking(double amount) {
+    BankAccounts.totaledAmountOfMoneyFromEverySingleBankAccountInstance = (BankAccounts.totaledAmountOfMoneyFromEverySingleBankAccountInstance + amount);
+    this.setChecking(this.getChecking() + amount);
+}
+
+// Method to Deposit into Savings Account
+public void depositSavings(double amount) {
+    BankAccounts.totaledAmountOfMoneyFromEverySingleBankAccountInstance = (BankAccounts.totaledAmountOfMoneyFromEverySingleBankAccountInstance + amount);
+    this.setSavings(this.getSavings() + amount);
+}
+
+    // Instance Methods to Withdraw Money from either the Checking or Savings Accounts
+// Instance Method to Withdraw from Checking Account
+public void withdrawChecking(double amount) {
+    if (this.getChecking() - amount >= 0) {
+        BankAccounts.totaledAmountOfMoneyFromEverySingleBankAccountInstance = (BankAccounts.totaledAmountOfMoneyFromEverySingleBankAccountInstance + amount);
+        this.setChecking(this.getChecking() - amount);
     }
-
-    // Static (class) Method / Method To Just Get The Account Total
-
-    // Static (class) Method To Display The totalAmount
-    public String getAccountTotal() {
-        return "Total Money in the Account: " + (this.getChecking() + this.getSavings());
+    else {
+        System.out.println("Insufficient Funds");
     }
+}
 
-    // Getters And Setters
-
-    // Getter For account Number
-    public String getAccountNumber() {
-        return accountNumber;
+// Instance Method to Withdraw from Savings Account
+public void withdrawSavings(double amount) {
+    if (this.getSavings() - amount >= 0) {
+        BankAccounts.totaledAmountOfMoneyFromEverySingleBankAccountInstance = (BankAccounts.totaledAmountOfMoneyFromEverySingleBankAccountInstance + amount);
+        this.setSavings(this.getSavings() - amount);
     }
-
-    // Getter For checking Account
-    public double getChecking() {
-        return this.checking;
+    else {
+        System.out.println("Insufficient Funds");
     }
+}
 
-    // Getter For savings Account
-    public double getSavings() {
-        return this.savings;
-    }
+    // Instance and Class Getters and Setters
+// Getter for Account Number
+public String getAccountNumber() {
+    return accountNumber;
+}
 
-    // Getter Static (class) Method To Display The numberOfAccounts
-    public static int getAccountsTotal() {
-        return numberOfAccounts;
-    }
+// Getter for Checking Account
+public double getChecking() {
+    return this.checking;
+}
 
-    // Getter Static (class) Method To Track All Of The Money For Each Account
-    public static double getTotalMoney() {
-        return totalAmount;
-    }
+// Getter for Savings Account
+public double getSavings() {
+    return this.savings;
+}
 
-    // These Setters Are private So Administration Can Change Accounts As Needed
-    // Setter For account Number
-    private void setAccountNumber(String accountNumber) {
-        this.accountNumber = accountNumber;
-    }
+// Getter Static (Class) Method to Display the Number of Accounts
+public static int getTotalNumberOfAccounts() {
+    return numberOfAccounts;
+}
 
-    // Setter For checking Account
+// Getter Static (Class) Method to return the Calculated Money from every Account
+public static double getTotalMoney() {
+    return totaledAmountOfMoneyFromEverySingleBankAccountInstance;
+}
+
+    // These Setters are Private so Administration can change Accounts as needed
+// Setter for Checking Account
     private void setChecking(double checking) {
         this.checking = checking;
     }
 
-    // Setter For savings Account
+    // Setter for Savings Account
     private void setSavings(double savings) {
         this.savings = savings;
     }
 
-    // Setter Static (class) Method To Set The numberOfAccounts
-    private static void setAccountsTotal(int numberOfAccounts) {
-        BankAccounts.numberOfAccounts = numberOfAccounts;
-    }
+    // These Static (Class) Methods can Only be access if they're Public
+    // Setter Static (Class) for Account Number
+    // private static void setAccountNumber(String accountNumber) {
+        //     BankAccounts.accountNumber = accountNumber;
+        // }
 
-    // Setter Static (class) Method To Set The Total Amount Of Money For Each Account
-    private static void setTotalMoney(double totalAmount) {
-        BankAccounts.totalAmount = totalAmount;
-    }
+    // Setter Static (Class) Method to Set the Total Number of Accounts (if needed by administrative personnel)
+//     private static void setAccountsTotal(int numberOfAccounts) {
+//     BankAccounts.numberOfAccounts = numberOfAccounts;
+// }
 
-    // Methods To Deposit Money
+// Setter Static (Class) Method to Set the Total Amount of Money of all Accounts (if needed by administrative personnel)
+// private static void setTotalMoney(double totaledAmountOfMoneyFromEverySingleBankAccountInstance) {
+//     BankAccounts.totaledAmountOfMoneyFromEverySingleBankAccountInstance = totaledAmountOfMoneyFromEverySingleBankAccountInstance;
+// }
 
-    // Method To Deposit Into checking Account
-    public void depositChecking(double amount) {
-        BankAccounts.totalAmount += amount;
-        this.setChecking(this.getChecking() + amount);
-    }
-
-    // Method To Deposit Into savings Account
-    public void depositSavings(double amount) {
-        BankAccounts.totalAmount += amount;
-        this.setSavings(this.getSavings() + amount);
-    }
-
-    // Methods To Withdraw Money
-
-    // Method To Withdraw From checking Account
-    public void withdrawChecking(double amount) {
-        if (this.getChecking() - amount >= 0) {
-            BankAccounts.totalAmount -= amount;
-            this.setChecking(this.getChecking() - amount);
-        }
-        else {
-            System.out.println("Insufficient Funds");
-        }
-    }
-
-    // Method To Withdraw From savings Account
-    public void withdrawSavings(double amount) {
-        if (this.getSavings() - amount >= 0) {
-            BankAccounts.totalAmount -= amount;
-            this.setSavings(this.getSavings() - amount);
-        }
-        else {
-            System.out.println("Insufficient Funds");
-        }
-    }
 }
