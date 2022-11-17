@@ -1,27 +1,32 @@
-// Set-up My Test File class
+// Defining Test File Class
 public class BankAccountTest {
-    // Entry Point Method
+    // Entry Point Method, Starts my Application
     public static void main(String[] args) {
-        // Create A BankAccount Object
-        BankAccounts sam = new BankAccounts();
-        System.out.println("This is the total number of banks " + BankAccounts.getAccountsTotal());
-        sam.depositChecking(300);
-        sam.depositSavings(200);
-        System.out.println("This is the checking for sam " + sam.getChecking());
-        System.out.println("This is the savings for sam " + sam.getSavings());
-        sam.withdrawChecking(400);
-        sam.withdrawSavings(200);
-        System.out.println("This is the checking for sam " + sam.getChecking());
-        System.out.println("This is the savings for sam " + sam.getSavings());
-        System.out.println(sam.getAccountTotal());
+        // Off of the BankAccount Class I am Instantiating a Instance of a BankAccount
+        BankAccounts sammy = new BankAccounts();
+        System.out.println("This is the total number of Bank Accounts " + BankAccounts.getTotalNumberOfAccounts());
+        sammy.depositChecking(300);
+        System.out.println("This is the Checking for Sammy: " + sammy.getChecking());
+        sammy.withdrawChecking(400);
+        System.out.println("This is the Checking for Sammy: " + sammy.getChecking());
+        sammy.depositSavings(300);
+        System.out.printf("This is the Savings for Sammy: %s", sammy.getSavings() + "\n");
+        sammy.withdrawSavings(400);
+        System.out.println("This is the Savings for Sammy " + sammy.getSavings());
+        System.out.println(sammy.getTotalOfBothAccounts());
+        // These are Commented out because they involve a Private Static (Class) Method
+        // System.err.println(sammy.getAccountNumber());
+        // BankAccounts.setAccountNumber("500");
+        // System.out.println(sammy.getAccountNumber());
 
-        BankAccounts sam1 = new BankAccounts();
-        System.out.println("This is the total number of banks " + BankAccounts.getAccountsTotal());
-        sam1.depositChecking(300);
-        System.out.println("This is the checking for sam " + sam1.getChecking());
-        System.out.println("This is the savings for sam " + sam1.getSavings());
-        System.out.println(sam1.getAccountTotal());
-        // Gets Total Amounts For All Accounts
+        BankAccounts sammie = new BankAccounts();
+        System.out.println("This is the total number of Bank Accounts " + BankAccounts.getTotalNumberOfAccounts());
+        sammie.depositChecking(3000);
+        System.out.println("This is the Checking for Sammie: " + sammie.getChecking());
+        System.out.println("This is the savings for Sammie " + sammie.getSavings());
+        System.out.println(sammie.getTotalOfBothAccounts());
+        // Get total amount from every account Instantiated
         System.out.println(BankAccounts.getTotalMoney());
+
     }
 }
