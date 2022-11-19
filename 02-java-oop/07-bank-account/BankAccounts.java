@@ -60,23 +60,23 @@ public void depositSavings(double amount) {
     // Instance Methods to Withdraw Money from either the Checking or Savings Accounts
 // Instance Method to Withdraw from Checking Account
 public void withdrawChecking(double amount) {
-    if (this.getChecking() - amount >= 0) {
-        BankAccounts.totaledAmountOfMoneyFromEverySingleBankAccountInstance = (BankAccounts.totaledAmountOfMoneyFromEverySingleBankAccountInstance + amount);
-        this.setChecking(this.getChecking() - amount);
+    if (this.getChecking() - amount < 0) {
+        System.out.println("Insufficient Funds");
     }
     else {
-        System.out.println("Insufficient Funds");
+        BankAccounts.totaledAmountOfMoneyFromEverySingleBankAccountInstance = (BankAccounts.totaledAmountOfMoneyFromEverySingleBankAccountInstance + amount);
+        this.setChecking(this.getChecking() - amount);
     }
 }
 
 // Instance Method to Withdraw from Savings Account
 public void withdrawSavings(double amount) {
-    if (this.getSavings() - amount >= 0) {
-        BankAccounts.totaledAmountOfMoneyFromEverySingleBankAccountInstance = (BankAccounts.totaledAmountOfMoneyFromEverySingleBankAccountInstance + amount);
-        this.setSavings(this.getSavings() - amount);
+    if (this.getSavings() - amount < 0) {
+        System.out.println("Insufficient Funds");
     }
     else {
-        System.out.println("Insufficient Funds");
+        BankAccounts.totaledAmountOfMoneyFromEverySingleBankAccountInstance = (BankAccounts.totaledAmountOfMoneyFromEverySingleBankAccountInstance + amount);
+        this.setSavings(this.getSavings() - amount);
     }
 }
 
