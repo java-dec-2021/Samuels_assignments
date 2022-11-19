@@ -23,10 +23,15 @@ public class BankAccountTest {
         System.out.println("This is the total number of Bank Accounts " + BankAccounts.getTotalNumberOfAccounts());
         sammie.depositChecking(3000);
         System.out.println("This is the Checking for Sammie: " + sammie.getChecking());
+        sammie.depositSavings(5000);
+        System.out.println("This is the savings for Sammie " + sammie.getSavings());
+        sammie.withdrawChecking(500);
+        System.out.println("This is the Checking for Sammie: " + sammie.getChecking());
+        sammie.withdrawSavings(700);
         System.out.println("This is the savings for Sammie " + sammie.getSavings());
         System.out.println(sammie.getTotalOfBothAccounts());
         // Get total amount from every account Instantiated
-        System.out.println(BankAccounts.getTotalMoney());
+        System.out.printf("Total Money from every active Bank Account: %s", BankAccounts.getTotalMoney());
 
     }
 }
