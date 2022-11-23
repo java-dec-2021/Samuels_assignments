@@ -9,6 +9,7 @@ public void listPokemon() {
     for(String poke : myPokemons) {
         System.out.println(poke);
     }
+
 }
 
 }
