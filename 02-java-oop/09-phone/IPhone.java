@@ -7,8 +7,7 @@ public class IPhone extends Phone implements Ringable {
         super(versionNumber, batteryPercentage, carrier, ringTone);
     }
 
-    // Using the "@Override" Annotation to Override the Abstract Methods from the Interface, So I can Compile with no Errors
-    @Override
+    // Using the "@Override" Annotation to Override the Abstract Methods from the Interface, To tell Compile I failed to Override a Parent Method even though I did, and to Compile with no Errors
     public String ring() {
         // Using the Getter Method Functionality to get the Values of "this" Class
         return "IPhone " + this.getVersionNumber() + " Says " + this.getRingTone();
@@ -19,7 +18,7 @@ public class IPhone extends Phone implements Ringable {
         return "Unlocking Via Facial Recognition";
     }
 
-    // Using the "@Override" Annotation to Override the Abstract Method from the Abstract Class
+    // Using the "@Override" Annotation to Override the Abstract Methods from the Interface, To tell Compile I failed to Override a Parent Method even though I did, and to Compile with no Errors
     @Override
     public void displayInfo() {
         // your code here
