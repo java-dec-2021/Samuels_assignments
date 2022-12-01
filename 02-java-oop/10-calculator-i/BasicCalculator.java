@@ -1,5 +1,5 @@
 // Defining JavaBean, Moreover to be a JavaBean I will need Member Variables, and need to Implement a Serializable Interface
-public class BasicCalculator implements java.io.Serializable{
+public class BasicCalculator implements java.io.Serializable {
 // Member Variables
     private double numOne;
     private double numTwo;
