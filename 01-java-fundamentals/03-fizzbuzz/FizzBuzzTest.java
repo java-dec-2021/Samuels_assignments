@@ -1,4 +1,4 @@
-// Defining my Test File Class with Verb name
+// Defining Test File Class with Noun name
 public class FizzBuzzTest {
     // Entry Point To Start My Application
     public static void main(String[] args) {
