@@ -1,4 +1,4 @@
-// Defining the Class
+// Defining the Class with Noun name
 public class FirstJavaProgram {
     // The Entry Point Method that my Program needs in order to start.
     // I need this in a Test File or somewhere in my App for it to start.
