@@ -1,4 +1,4 @@
-// Defining my test file class with Verb name
+// Defining Test File Class with Noun name
 public class AlfredTest {
     /*
     This main method will always be the launch point for a Java application
