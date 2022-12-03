@@ -1,4 +1,4 @@
-// Defining Test File with Verb name and PascalCased
+// Defining Test File with Noun naming and PascalCased Naming Convention for Java Files
 public class HashTest {
     // Entry Point to Start the Application
     public static void main(String[] args) {
