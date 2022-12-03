@@ -1,4 +1,4 @@
-// Defining Test File with Verb name
+// Defining Test File with Noun name
 public class Test {
     // Entry Point Method
     public static void main(String[] args) {
