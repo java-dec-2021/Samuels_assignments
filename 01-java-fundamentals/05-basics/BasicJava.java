@@ -4,7 +4,7 @@
 // Import Array Modules to be able to use Arrays for Java
 import java.util.Arrays;
 import java.util.ArrayList;
-// Defining the Class with Verb name
+// Defining the Class with Noun name
 public class BasicJava {
 
 
