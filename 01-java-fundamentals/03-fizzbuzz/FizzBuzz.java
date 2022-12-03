@@ -1,4 +1,4 @@
-// Defining My Class with Verb name
+// Defining Class with Noun name
 public class FizzBuzz {
     // Constructor example
     public String fizzBuzz(int args) {
