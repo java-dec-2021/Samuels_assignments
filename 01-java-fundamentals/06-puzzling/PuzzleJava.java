@@ -2,7 +2,7 @@
 import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.Random;
-// Defining The class with Verb name
+// Defining The class with Noun name
 public class PuzzleJava {
     // Write a Method to Print 10 Random Numbers out of 20 Into an Array
     public void getTenRolls() {
