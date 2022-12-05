@@ -1,7 +1,7 @@
 // Importing the Imports I need
 import java.util.ArrayList;
 import java.util.Arrays;
-
+// Defining Class with Noun name
 public class Portfolio {
 // Member Variable
     private ArrayList<Project> projects;
