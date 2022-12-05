@@ -1,4 +1,4 @@
-// Defining Class with Verb name 
+// Defining Class with Noun naming Convention for Java
 public class Project {
 // Member Variables
     private String name;
