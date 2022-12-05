@@ -1,7 +1,7 @@
 // Adding the Imports I need
 import java.util.HashMap;
 import java.util.Set;
-// Defining Class with Verb name
+// Defining Class with Noun name
 public class TrackList {
     // Defining Instance Methods or Functionality for the Class
     public void trackList(String args) {
