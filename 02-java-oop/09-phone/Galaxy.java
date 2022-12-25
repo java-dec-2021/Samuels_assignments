@@ -1,3 +1,4 @@
+// Defining Galaxy Class with Noun name
 public class Galaxy extends Phone implements Ringable {
 // Constructor
     public Galaxy(String versionNumber, int batteryPercentage, String carrier, String ringTone) {
