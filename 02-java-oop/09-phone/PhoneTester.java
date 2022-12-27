@@ -1,4 +1,4 @@
-// Defining Test File class
+// Defining Test File Class with Noun name
 public class PhoneTester {
     // Entry Point
     public static void main(String[] args) {
